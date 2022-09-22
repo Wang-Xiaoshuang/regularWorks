@@ -1,0 +1,55 @@
+.duplicate_titleWrapper {
+    height: 65.3px !important;
+    width: 100%;
+    padding: 18px 20px;
+    border-bottom: #e6e6e6 solid 1px;
+    position: relative;
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  
+  .manageTabs{
+    width: 300px;
+    position: absolute;
+    bottom: 0;
+    :global{
+      .ant-tabs-nav{
+        margin: 0;
+      }
+      .ant-tabs-nav::before{
+        border-width: 0;
+      }
+    }
+  }
+  
+  .title_btns {
+    display: flex;
+    position: absolute;
+    right: 20px;
+    button:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+  .content {
+    margin: 4px 20px 0;
+  }
+  
+  .line {
+    width: calc(100% - 40px);
+    height: 40px;
+    margin: 10px 20px 10px;
+    font-size: 14px;
+    background: rgba(1, 178, 185, 0.1);
+    border-radius: 2px;
+    border: 1px solid #01b2b9;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    img {
+      margin-right: 4px;
+    }
+  }
+  

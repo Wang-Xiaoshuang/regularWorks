@@ -1,0 +1,111 @@
+.homeHeader {
+  background-color: transparent;
+
+  :global {
+    .ant-layout {
+      background: #e9eaee;
+    }
+    .ant-layout-header {
+      background-color: transparent;
+    }
+    .ant-menu {
+      background: transparent;
+      font-size: 18px;
+    }
+
+    .ant-pro-top-nav-header-menu {
+      & + div {
+        min-width: 100px !important;
+        font-size: 14px;
+        & > div {
+          padding: 0 !important;
+        }
+      }
+    }
+
+    .ant-menu-overflow {
+      padding-right: 30px;
+    }
+
+    .ant-pro-top-nav-header-main {
+      height: 60px;
+    }
+
+    .ant-pro-top-nav-header-logo {
+      width: 35vw;
+    }
+
+    .ant-pro-top-nav-header.light {
+      background-color: transparent;
+    }
+
+    .ant-pro-top-nav-header {
+      box-shadow: 0 0 2px 0 #fff;
+      .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover {
+        background-color: #ffffff1c;
+      }
+      .ant-menu .ant-menu-item-selected,
+      .ant-menu-submenu-popup .ant-menu-item-selected {
+        background: none;
+      }
+      .ant-menu-horizontal > .ant-menu-item a {
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .ant-menu-horizontal > .ant-menu-item-selected a {
+        color: #fff;
+        font-weight: bold;
+      }
+      .ant-menu-horizontal > .ant-menu-item a:hover {
+        color: #b6e5e7;
+      }
+      .ant-menu-overflow-item {
+        color: #fff;
+      }
+      .ant-menu .ant-menu-item-selected::after {
+        position: absolute;
+        bottom: 3px;
+        left: 10%;
+        width: 80%;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.85);
+        border: none;
+        content: ' ';
+      }
+    }
+  }
+}
+
+.logo {
+  width: 30vw;
+  height: 50px;
+  margin-top: 11px;
+  background-image: url('../assets/logoT.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.banner {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 20vw;
+  background: linear-gradient(178deg, #071948, #f0f2f5);
+  background-image: url('../assets/banner.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.content {
+  position: relative;
+  // max-width: 1400px;
+  max-width: calc(100% - 40px);
+  margin: 0 auto;
+  padding-top: 10px;
+
+  &:global(.fullscreen) {
+    max-width: 100%;
+    padding: 0;
+    overflow: hidden;
+    background: #e8eaee;
+  }
+}
