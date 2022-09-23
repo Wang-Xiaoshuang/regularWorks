@@ -63,9 +63,9 @@ const download = (res, setLoading) => {
     ?.split('=')[1];
   const docTitle = repTitle ? decodeURIComponent(repTitle) : '压缩包';
   res.blob().then(blob => {
-    create(blob, docTitle)
+    create(blob, docTitle);
     if (setLoading) {
-      setLoading(false)
+      setLoading(false);
     }
   });
   // });
@@ -86,16 +86,3 @@ function create(res, title) {
 }
 
 export { transferMoment, download };
-
-// export function debounce(fn, ms) {
-//   let timer;
-//   return function(...args) {
-//     if (timer) {
-//       clearTimeout(timer);
-//     }
-//     timer = setTimeout(() => {
-//       fn(...args);
-//       timer = null;
-//     }, ms);
-//   };
-// }

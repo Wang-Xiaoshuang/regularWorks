@@ -80,26 +80,9 @@ axiosRequest.interceptors.response.use(
       description: message,
     });
     return '';
-    // const { message } = header;
-    // const error = new Error();
-    // error.name = 'customError';
-    // error.message = message;
-    // throw error;
   },
   err => {
     return errorHandler(err);
   },
 );
-//   async response => {
-//   // const data = await response.clone().json();
-//   const { header, body } = data;
-//   if (header.code === '200' || header.code === 200) {
-//     return body || {};
-//   }
-//   const { message } = header;
-//   const error = new Error();
-//   error.name = 'customError';
-//   error.message = message;
-//   throw error;
-// });
 export default axiosRequest;

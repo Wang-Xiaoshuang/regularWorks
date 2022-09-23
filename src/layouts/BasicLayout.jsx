@@ -7,7 +7,6 @@ import ProLayout from '@ant-design/pro-layout';
 import { useEffect } from 'react';
 import Link from 'umi/link';
 import { connect } from 'dva';
-// import RightContent from './RightContent';
 import styles from './basic.less';
 /**
  * use Authorized check all menu item
@@ -17,7 +16,6 @@ const menuDataRender = menuList =>
     const localItem = { ...item, children: item.children ? menuDataRender(item.children) : [] };
     return localItem;
   });
-
 
 const BasicLayout = props => {
   const { dispatch, children, settings } = props;
@@ -37,7 +35,7 @@ const BasicLayout = props => {
       });
     }
   }, []);
- 
+
   /**
    * init variables
    */
@@ -54,9 +52,9 @@ const BasicLayout = props => {
     <ProLayout
       onCollapse={handleMenuCollapse}
       menuItemRender={(menuItemProps, defaultDom) => {
-        return <Link to={menuItemProps.path}>{defaultDom}</Link>
+        return <Link to={menuItemProps.path}>{defaultDom}</Link>;
       }}
-      footerRender={() => { }}
+      footerRender={() => {}}
       menuDataRender={menuDataRender}
       menuHeaderRender={() => (
         <a href="/">
@@ -71,7 +69,6 @@ const BasicLayout = props => {
       logo={false}
       title={settings.title}
       className={styles.homeHeader}
-      // rightContentRender={RightContent}
     >
       <div className={styles.banner}></div>
       <div className={styles.content}>{children}</div>
