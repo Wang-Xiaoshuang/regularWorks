@@ -1,0 +1,20 @@
+2022-09-15
+使用dumi--组件文档脚手架，仅仅打包生成文档时，在本地打开dist文件夹下html文件，报错：
+“Uncaught DOMException: Failed to execute 'pushState' on 'History': A history state object with URL 'file:///E:/docs-dist/grid' cannot be created in a document with origin 'null' and URL 'file:///E:/%E6%88%91%E7%9A%84/%E7%BB%84%E4%BB%B6%E6%96%87%E6%A1%A3/docs-dist/index.html'.”
+原因：
+chrome安全设置导致不支持file类型的url，Chromium/Chrome 对 v45 进行了更改，当通过file://方案打开文件时，破坏了 HTML5 History API 在文件中的所有使用。
+解决：部署到服务器端（部署到GitHub Pages 静态站点托管平台），或者换个浏览器（换成firefox 依旧失败)
+
+2022-09-21
+npm install --dev  下载devDependencies中的依赖
+
+1. dumi ：按需引入antd的样式。 引入`babel-plugin-import`包，在 umi 和 father 的配置文件里加入 `extraBabelPlugins` 相关配置
+
+2. 拉取代码安装依赖后，npm start 启动编译项目过程中 报javaScript heap out of memory错误：
+解析：   JavaScript堆内存不足，这里说的 JavaScript 其实就是 Node。Node 是基于V8引擎， 
+在 Node 中通过 JavaScript 使用内存时只能使用部分内存（64位系统下约为1.4 GB，32位系统下约为0.7 GB）。
+前端项目庞大，webpack 编译时占用很多系统资源，超出了V8对 Node 默认的内存限制大小
+解决：   安装：npm install -g increase-memory-limit       执行：increase-memory-limit
+
+2.1 https://blog.csdn.net/qq_41614928/article/details/115835337
+
