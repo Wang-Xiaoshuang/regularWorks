@@ -1,4 +1,4 @@
-面向对象 + 构造函数 + 继承
+# 面向对象 + 构造函数 + 继承
 
 我的俗语：就是一个对象，获取里面属性和方法。这些属性和方法，一些是对象自身私有的，一些是从爸爸上拿来直接用的。
 所有开发者，都想能打造出复用性高、抽象得好的好爸爸，面向对象编程的目的
@@ -12,7 +12,7 @@
 3. 明白原型链，实例、对象原型、构造函数
 4. 讲继承，怎么实现一个好的继承
 
-# 面向对象
+## 面向对象
 
 ### 对象是什么？为什么要面向对象？
 
@@ -35,7 +35,7 @@
 
 - 对象是对于单个物体的简单抽象
 - 对象是容器，封装了属性 & 方法
-  ** 属性：对象状态
+  **属性：对象状态
   ** 方法：对象的能力 & 行为
 
 ```js
@@ -65,7 +65,7 @@ function Course() {
 }
 ```
 
-# 构造函数 - 生成对象 => 这个对象，称为：实例
+## 构造函数 - 生成对象 => 这个对象，称为：实例
 
 ### 梳理 2-2
 
@@ -90,8 +90,8 @@ function Course() {
 1. new 的原理
 
 - 1. 结构上：创建空对象，为实例对象
-- 2. 属性上：改对象原型————将空对象的对象原型指向了构造函数的 prototype 属性
-- 3. 关系上：改 this————将空对象赋给了内部的 this
+- 2. 属性上：改`空对象`的对象原型————将空对象的对象原型指向了构造函数的 prototype 属性
+- 3. 关系上：改函数内的this————将空对象赋给了内部的 this
 - 4. 生命周期上：初始化————执行了构造函数的初始化代码
 - 5. 返回上：判断返回值类型————对象类型-返回该对象，原始类型-第一步创建的空对象
 
@@ -111,17 +111,19 @@ function Course() {
 2. 实例的属性`__proto__`指向的对象原型`[[Prototype]]`，
    构造函数的`prototype`也指向对象原型`[[Prototype]]`
 3. 实例 和 对象原型 的 `constructor`属性，都指向了构造函数
+
 4. ```js
    course1._proto_._proto_ === Object.prototype;
    Course.prorotype._proto_ === Object.prototype;
    Course.prototype.constructor === Course;
    course1._proto_._proto_._proto_ === null;
    ```
+
 5. 对象找一个属性的时候，
    不停地通过`__proto__`去找对象原型、对象原型的对象原型，直到为 null
 6. Object.prototype 是最基础的原型，所有对象默认都拥有它
    Object.prototype 的原型是 null，所以它位于原型链的终点
-7. 对象的原型可以通过`__proto__`语法手动绑定，像 `{ a: 1, b: 2, __proto__: c } `
+7. 对象的原型可以通过`__proto__`语法手动绑定，像 `{ a: 1, b: 2, __proto__: c }`
 
 <!-- 其他 -->
 
@@ -133,7 +135,7 @@ function Course() {
    存在一些安全问题和隐患。
    js 有提供专门的接口 Object.getPrototypeOf(Instance) 、Object.setPrototypeOf(Instance,Prototype)
 9. `instanceof` ———— swan instanceof Swan
-   定义：to see if the `prototype` property of a constructor
+   定义：to see if the `prototype` property of a constructor（Swan）
    appears anywhere in the prototype chain of an object.
 
 ### 梳理 2-5
@@ -171,6 +173,7 @@ function Course() {
    缺点：调用两次父类的构造函数
 
 4. 寄生组合继承
+
    ```js
    // 改成
    LOL.prototype = Object.create(Game.prototype);
@@ -215,7 +218,7 @@ const course = new Course(args);
 - 2. 生成对象用 new 来实例化
 - 3. 可以初始化传参
 
-#### 追问：
+#### 追问
 
 #### 如果构造函数不用 new 去实例化，可以使用具有相同能力吗？ - 无法具有
 
@@ -472,14 +475,14 @@ course1._proto_._proto_._proto_ === null;
 
 <!-- 手动绑定 -->
 
-在像 `{ a: 1, b: 2, __proto__: c } `
+在像 `{ a: 1, b: 2, __proto__: c }`
 
 <!-- 手动绑定不方便。所以，使用构造函数 -->
 
 这样的对象字面量中，
 c 值（必须为 null 或另一个对象）将变成字面量所表示的对象的 `[[Prototype]]`，
 而其他键（如 a 和 b）将变成对象的自有属性。
-这种语法读起来非常自然，因为` [[Prototype]]` 只是对象的“内部属性”。
+这种语法读起来非常自然，因为`[[Prototype]]` 只是对象的“内部属性”。
 
 ```js
 // 注意作用域链 和 原型链的区别
@@ -616,12 +619,13 @@ Game.prototype.getName = function () {
   return this.name;
 };
 
-function LOL(arg) {
+function LOL(arg,age) {
   Game.call(this, arg);
+  this.age = age;
 }
 LOL.prototype = new Game();
 LOL.prototype.constructor = LOL;
-const game4 = new LOL("arg");
+const game4 = new LOL("arg",18);
 ```
 
 追问：组合继承方式就没有缺点吗？

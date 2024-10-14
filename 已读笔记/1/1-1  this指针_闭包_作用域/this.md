@@ -1,8 +1,15 @@
+# 总结
+
+作用域，就是用来找变量。因为JS引擎先预编译，在写下代码时就知道作用域，作用域是静态的。
+提升；覆盖
+
+this，就是在找执行上下文。主要是函数要额外关注一下。
+
 ## 作用域 + 上下文
 
 ### 作用域链 - xxx is undefined | 'value' of undefined
 
-#### 1-1 梳理：
+#### 1-1 梳理
 
 1. JS 引擎在正式执行之前先预编译
 2. 函数声明提升（undefined），无论是否处于块级区域，都只储存到函数执行上下文中变量环境下的作用域中
@@ -310,7 +317,7 @@ Array.prototype.slice.call()
 
 拓展：
 
-1.  let|const 和 var 声明的变量区别
+1. let|const 和 var 声明的变量区别
     1. var 声明的变量，不受块级作用域限制，是全局变量
        （说明 js 不是原生支持块级作用域的）
     2. (es6) let|const 声明的变量 ，在块级作用域内
@@ -356,7 +363,7 @@ const obj = {
 obj.fn();
 ```
 
-##### 面试题：
+##### 面试题
 
 ```js
 const foo = {
@@ -406,7 +413,7 @@ console.log("o3fn", o3.fn());
 ```
 
 - 拓展
-  https://i-want-offer.github.io/FE-Essay/JavaScript/%E6%9C%A8%E6%98%93%E6%9D%A8%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6/%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88.html#%E6%89%BE%E4%B8%8D%E5%90%8C
+  <https://i-want-offer.github.io/FE-Essay/JavaScript/%E6%9C%A8%E6%98%93%E6%9D%A8%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6/%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88.html#%E6%89%BE%E4%B8%8D%E5%90%8C>
 
 ```js
 var scope = "global scope";
