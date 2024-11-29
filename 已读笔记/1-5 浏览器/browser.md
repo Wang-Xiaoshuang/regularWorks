@@ -1,6 +1,11 @@
+# 1
+
 ## 浏览器相关
+
 ### 一、认识浏览器运行态下的JS
+
 #### 包含：BOM、DOM、ECMAScript
+
 ```js
     (function(context, undefined) {
         const _class = ['js', 'browser', 'vue']
@@ -25,7 +30,9 @@
 ```
 
 ### 二、BOM
+
 #### 1. location
+
 ```js
 location.href => 'https://www.zhaowa.com/search?class=browser#comments'
     .origin => 'https://www.zhaowa.com'
@@ -41,26 +48,35 @@ location.assign(url) // 跳转到制定的path，替换pathname的值
     .reload()  // 重新加载
     .toString() // 当前完整地址字符串输出
 ```
+
 * 面试方向：
+
 1. location本身api操作
 2. 路由相关：跳转、参数、操作 => 场景：可返回（history）、是否刷新（hash）
 3. url处理 - 正则 or 手写js解析
 
 #### 2. history
+
 history.pushState() // 跳转到制定状态页上
     .replaceState() // 替换当前状态
+
 * 面试方向 - 路由方向history和hash模式利弊
 
 #### 3. navigator
+
 * 浏览器系统信息的大集合
+
 ```js
     navigator.userAgent // 获取当前用户环境信息
 ```
+
 * 面试方向
+
 1. userAgent 读取信息 => 浏览器兼容性
 2. 剪切板、键盘
 
 #### 4. screen
+
 表示显示区域的参数 - 屏幕
 
 * 面试方向 - 对于区域的判断
@@ -91,9 +107,11 @@ el.getBoundingClientRect()
     .left // 左距离
     .bottom // 下距离
     .right  // 右距离
+
 * 兼容性 - IE会多出两个像素
 
 ### 三、事件模型
+
 ```js
     <div id="app">
         <p id="dom">Click</p>
@@ -124,6 +142,7 @@ el.getBoundingClientRect()
     // d. e.cancelBubble = true vs e.stopPropagation()
     // e. 阻止默认事件 e.returnValue vs e.preventDefault()
 ```
+
 ```js
     // 手写统一事件绑定
     class bindEvent {
@@ -205,6 +224,7 @@ el.getBoundingClientRect()
 ```
 
 ### 四、网络层
+
 ```js
     // 实例化
     const xhr = new XMLHttpRequest()
@@ -237,13 +257,16 @@ el.getBoundingClientRect()
         // ^^^
     }
 ```
+
 * 面试方向：
+
 1. RESTFUL -  GET ｜ POST ｜ PUT ｜ DELETE
 2. 跨域 - 代理、JSONP、CORS、iframe
 3. 状态码 - 2xx 、 400、500、 3xx => 涉及到浏览器缓存
 => 强缓存（expire + cache-control） vs 协商缓存（last-modify + E-tag）
 
 ### 五、浏览器原理
+
 ```js
     // 1. DOM
     // 2. CSSOM 浏览器将css解析成树形的数据结构
