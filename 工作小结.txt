@@ -1,5 +1,11 @@
 host文件：C:\Windows\System32\drivers\etc
 1199240
+
+zhishikoo.com
+set NODE_OPTIONS=--openssl-legacy-provider && 
+--legacy-peer-deps
+
+
 ----------------------------------------------------------------
 getPopupContainer={triggerNode => triggerNode.parentNode}
 下拉弹窗分离
@@ -10,7 +16,7 @@ mgdev
 mgmaster
 -----------------------------------------------------------------
 git add .
-git commit -m '打字机' --no-verify
+git commit -m '更新' --no-verify
 git push
 git checkout qa
 git merge master 
@@ -27,8 +33,8 @@ master
 git remote -v 
 git remote set-url origin 新地址
 
-git branch --delete  robot
-git push origin --delete robot
+git branch --delete  qa
+git push origin --delete qa
 
 git diff
 
@@ -40,6 +46,8 @@ git checkout .
 
 git reset --hard  9e51a4f623d770edd702a0c8b6e47f74919a70d4
 git push origin HEAD --force
+
+npm config get registry 
 
 ----------------------------------------------------------------
 
